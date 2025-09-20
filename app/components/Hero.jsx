@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
       <div className="flex relative main bg-[beige] items-center justify-center h-screen flex-col">
-        <div className="text-[24rem] boom text-black">FAZAL KADIVAR</div>
+        <div className="text-5xl md:text-9xl lg:text-[25rem] boom text-black">FAZAL KADIVAR</div>
       </div>
     </>
   );

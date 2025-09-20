@@ -45,16 +45,16 @@ export default function Second() {
     }, []);
 
     return (
-        <div className="flex relative main text-[beige] items-center justify-center h-screen flex-col">
+        <div className="flex relative main text-[beige] items-center justify-center h-screen flex-col p-4 md:p-0">
             <div
                 ref={leftRef}
-                className="text-2xl flex flex-col items-center justify-center"
+                className="text-lg md:text-2xl flex flex-col items-center justify-center text-center"
             >
                 I am a guy with a laptop, head over heels for
             </div>
             <div
                 ref={rightRef}
-                className="text-[15rem] font-[TDF] uppercase leading-none m-0 p-0"
+                className="text-9xl md:text-[12rem] lg:text-[15rem] font-[TDF] uppercase leading-none m-0 p-0"
             >
                 backend
             </div>
