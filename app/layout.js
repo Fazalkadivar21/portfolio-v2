@@ -1,31 +1,29 @@
-import { Geist, Geist_Mono } from "next/font/google";
+"use client";
+import { ParallaxProvider } from "react-scroll-parallax";
+import SmoothScroll from "./components/SmoothScroll";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const TDF = localFont({
+  src: "./fonts/TDF.ttf",
+  variable: "--font-tdf",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const Luxnoleg = localFont({
+  src: "./fonts/Luxnoleg.ttf",
+  variable: "--font-luxnoleg",
 });
-
-export const metadata = {
-  title: "Fazal Kadivar",
-  description: "Fazal Kadivar's Portfolio backend developer. mearn stack developer",
-};
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${TDF.variable} ${Luxnoleg.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body>
+        <ParallaxProvider>
+          <SmoothScroll>{children}</SmoothScroll>
+        </ParallaxProvider>
       </body>
     </html>
   );

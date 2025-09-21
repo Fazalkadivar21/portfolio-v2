@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Parallax } from "react-scroll-parallax";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,18 +47,20 @@ export default function Second() {
 
     return (
         <div className="flex relative main text-[beige] items-center justify-center h-screen flex-col p-4 md:p-0">
+            <Parallax speed={10}>
             <div
                 ref={leftRef}
                 className="text-lg md:text-2xl flex flex-col items-center justify-center text-center"
             >
                 I am a guy with a laptop, head over heels for
             </div>
-            <div
-                ref={rightRef}
-                className="text-9xl md:text-[12rem] lg:text-[15rem] font-[TDF] uppercase leading-none m-0 p-0"
-            >
-                backend
-            </div>
+                <div
+                    ref={rightRef}
+                    className="text-9xl md:text-[12rem] lg:text-[15rem] font-[TDF] uppercase leading-none m-0 p-0"
+                >
+                    backend
+                </div>
+            </Parallax>
         </div>
     );
 }

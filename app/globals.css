@@ -4,25 +4,11 @@ body{
   background: black;
   box-sizing: border-box;
   color:black;
-  font-family: "Luxnoleg";
-}
-@font-face {
-  font-family: "TDF";
-  src: url("/fonts/TDF.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Luxnoleg";
-  src: url("/fonts/Luxnoleg.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+  font-family: var(--font-luxnoleg);
 }
 
 .boom{
-  font-family: "TDF";
+  font-family: var(--font-tdf);
 }
 .smokey{
 background: rgba(31, 31, 31, 0.648);

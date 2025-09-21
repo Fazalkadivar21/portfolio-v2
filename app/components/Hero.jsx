@@ -2,6 +2,7 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import SplitText from "gsap/SplitText";
+import { Parallax } from "react-scroll-parallax";
 
 gsap.registerPlugin(SplitText);
 
@@ -22,7 +23,9 @@ export default function Home() {
   return (
     <>
       <div className="flex relative main bg-[beige] items-center justify-center h-screen flex-col">
-        <div className="text-5xl md:text-9xl lg:text-[25rem] boom text-black">FAZAL KADIVAR</div>
+        <Parallax speed={-20}>
+          <div className="text-5xl md:text-9xl lg:text-[25rem] boom text-black">FAZAL KADIVAR</div>
+        </Parallax>
       </div>
     </>
   );
