@@ -6,58 +6,47 @@ import { Parallax } from "react-scroll-parallax";
 const projectsData = [
   {
     id: 1,
-    title: "Metaverse",
-    subtitle: "Real-Time Interactions",
+    title: "ChatGPT Clone",
+    subtitle: "AI Chat Application",
     description:
-      "Backend-powered real-time interactions with a simple interface and easy integration.",
-    technologies: ["TypeScript", "Node.js", "Express", "Socket.IO"],
+      "Developed a full-stack AI chat application enabling users to interact with an AI assistant, manage conversations, and save chats. Implemented secure authentication, real-time messaging, and chat management features. Integrated Google Gemini API for AI responses, Pinecone for semantic search, and Redis for caching. Built a responsive, modern UI with React and Tailwind CSS; ensured persistent storage with MongoDB.",
+    technologies: [
+      "React",
+      "Zustand",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "TypeScript",
+      "Socket.IO",
+      "MongoDB",
+      "Redis",
+      "Google Gemini API",
+    ],
     year: "2025",
-    category: "Web Development",
-    link: "https://github.com/fazalkadivar21/metaverse",
+    category: "AI App",
+    link: "https://github.com/fazalkadivar21/chatgpt-clone",
   },
   {
     id: 2,
     title: "Omegle Clone",
-    subtitle: "Anonymous Chat Application",
+    subtitle: "Anonymous Chat Platform",
     description:
-      "A web application that allows users to have anonymous text and video chats with strangers.",
-    technologies: ["React", "Node.js", "TypeScript", "WebRTC", "Socket.IO"],
+      "Developed a secure, anonymous chat platform with video and text support. Integrated WebRTC for real-time media streaming and peer-to-peer connections. Added moderation features to ensure user safety and privacy.",
+    technologies: ["React", "NodeJS", "TypeScript", "WebRTC", "Socket.IO"],
     year: "2025",
     category: "Web App",
     link: "https://github.com/fazalkadivar21/omegle",
   },
   {
     id: 3,
-    title: "Shell-JavaScript",
-    subtitle: "Command Line Shell",
-    description:
-      "JavaScript-based shell able to execute shell commands with features like prompt display, navigation, quoting, redirection, and autocompletion.",
-    technologies: ["Node.js"],
-    year: "2024",
-    category: "CLI Tool",
-    link: "https://github.com/fazalkadivar21/shell-javascript",
-  },
-  {
-    id: 4,
     title: "Campa",
-    subtitle: "Modern UI/UX Website",
+    subtitle: "Modern Animated Website",
     description:
-      "Reimagined website for Campa beverages with modern UI/UX and improved performance.",
+      "Re-designed and developed a modern, animated website for Campa Beverages. Integrated GSAP and Framer Motion for engaging UI animations. Optimized performance and accessibility for improved user engagement.",
     technologies: ["React", "GSAP", "Framer Motion", "TailwindCSS"],
     year: "2024",
     category: "Web Design",
     link: "https://github.com/fazalkadivar21/campa",
-  },
-  {
-    id: 5,
-    title: "Uber Clone",
-    subtitle: "Ride-Hailing Web Application",
-    description:
-      "Uber-like ride-hailing web application with real-time tracking, fare estimation, and user authentication.",
-    technologies: ["Node.js", "Express", "MongoDB", "Google Maps API"],
-    year: "2025",
-    category: "Web App",
-    link: "https://github.com/fazalkadivar21/uber",
   },
 ];
 
@@ -128,9 +117,9 @@ const ProjectCard = ({ project, index }) => {
               <a
                 href={project.link}
                 target="_blank"
-                className="px-6 py-2.5 rounded-full uppercase tracking-wider text-xs md:text-base flex items-center gap-2 border-2 bg-black text-[#f5f5dc] border-black hover:scale-105 transition-transform self-end md:self-auto"
+                className="p-3 rounded-full uppercase tracking-wider text-xs md:text-base flex items-center gap-2 border-2 bg-black text-[#f5f5dc] border-black hover:scale-105 transition-transform self-end md:self-auto"
               >
-                <span>View Project</span>
+                {/* <span>View Project</span> */}
                 <svg
                   className="w-4 h-4 md:w-6 md:h-6"
                   fill="none"
