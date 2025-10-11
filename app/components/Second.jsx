@@ -1,66 +1,67 @@
 "use client";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Parallax } from "react-scroll-parallax";
 
-gsap.registerPlugin(ScrollTrigger);
+export default function AboutMe() {
+  return (
+    <div className="min-h-screen w-full bg-[#18181b] text-[#f5f5dc] px-4 sm:px-6 lg:px-12 py-12 lg:py-20">
+      <style jsx>{`
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap');
+        
+        .heading-font {
+          font-family: 'Bebas Neue', sans-serif;
+          letter-spacing: 0.02em;
+        }
+        
+        .body-font {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+          font-weight: 400;
+          line-height: 1.8;
+        }
+      `}</style>
 
-export default function Second() {
-    const leftRef = useRef(null);
-    const rightRef = useRef(null);
-
-    useGSAP(() => {
-        gsap.fromTo(
-            leftRef.current,
-            { x: -200, opacity: 0 },
-            {
-                x: 0,
-                opacity: 1,
-                scrollTrigger: {
-                    trigger: leftRef.current,
-                    start: "top 80%",
-                    end: "top 30%", // animation happens *while* scrolling
-                    scrub: true,    // ties progress to scroll
-                },
-                ease: "power3.out",
-            }
-        );
-
-        gsap.fromTo(
-            rightRef.current,
-            { x: 200, opacity: 0 },
-            {
-                x: 0,
-                opacity: 1,
-                scrollTrigger: {
-                    trigger: rightRef.current,
-                    start: "top 80%",
-                    end: "top 30%",
-                    scrub: true,
-                },
-                ease: "power3.out",
-            }
-        );
-    }, []);
-
-    return (
-        <div className="flex relative main text-[beige] items-center justify-center h-screen flex-col p-4 md:p-0">
-            <Parallax speed={10}>
-            <div
-                ref={leftRef}
-                className="text-lg md:text-2xl flex flex-col items-center justify-center text-center"
-            >
-                I am a guy with a laptop, head over heels for
-            </div>
-                <div
-                    ref={rightRef}
-                    className="text-9xl md:text-[12rem] lg:text-[15rem] font-[TDF] uppercase leading-none m-0 p-0"
-                >
-                    backend
-                </div>
-            </Parallax>
+      <div className="max-w-7xl mx-auto">
+        {/* Header Section */}
+        <div className="mb-12 lg:mb-20">
+          <h1 className="heading-font uppercase text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-tight">
+            About me
+          </h1>
         </div>
-    );
+
+        {/* Content Section */}
+        <div className="max-w-3xl lg:max-w-4xl">
+          <div className="body-font space-y-6 sm:space-y-8 text-base sm:text-lg lg:text-xl">
+            <p className="opacity-90 hover:opacity-100 transition-opacity duration-300">
+              I spend a lot of time building things on the internet. Sometimes
+              it's the part you see, like a button that actually does what you
+              expect. Sometimes it's the part you don't, like making sure your
+              messages don't disappear into the void or your login actually
+              keeps out nosy neighbors. I like making things that are useful,
+              and I get a weird amount of joy from seeing someone use something
+              I made.
+            </p>
+            <p className="opacity-90 hover:opacity-100 transition-opacity duration-300">
+              I'm the kind of person who gets a little too excited when a new
+              problem pops up. I love figuring things out, whether it's making a
+              website run faster, fixing something that's broken, or just making
+              sure everything works the way it should. If you've ever yelled at
+              your computer, I've probably been there, too—except I usually end
+              up talking to my screen like it's going to answer back.
+            </p>
+            <p className="opacity-90 hover:opacity-100 transition-opacity duration-300">
+              I'm not going to pretend I'm a wizard or a ninja or whatever. I
+              just really like making stuff work, and I'm stubborn enough to
+              keep poking at a problem until it gives up. If you want someone
+              who cares about the details, laughs at their own typos, and will
+              probably send you memes at 2am when something finally works,
+              that's me.
+            </p>
+          </div>
+        </div>
+
+        {/* Decorative Element */}
+        <div className="mt-16 lg:mt-24">
+          <div className="w-20 sm:w-32 h-1 bg-[#f5f5dc] opacity-30"></div>
+        </div>
+      </div>
+    </div>
+  );
 }

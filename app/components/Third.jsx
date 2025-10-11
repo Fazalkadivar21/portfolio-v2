@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 import { Parallax } from "react-scroll-parallax";
 
 // ✅ Project Data
@@ -24,6 +25,7 @@ const projectsData = [
     ],
     year: "2025",
     category: "AI App",
+    image : "/images/chatgpt.png",
     link: "https://github.com/fazalkadivar21/chatgpt-clone",
   },
   {
@@ -35,6 +37,7 @@ const projectsData = [
     technologies: ["React", "NodeJS", "TypeScript", "WebRTC", "Socket.IO"],
     year: "2025",
     category: "Web App",
+    image : "/images/omegle.png",
     link: "https://github.com/fazalkadivar21/omegle",
   },
   {
@@ -46,6 +49,7 @@ const projectsData = [
     technologies: ["React", "GSAP", "Framer Motion", "TailwindCSS"],
     year: "2024",
     category: "Web Design",
+    image : "/images/campa.png",
     link: "https://github.com/fazalkadivar21/campa",
   },
 ];
@@ -74,72 +78,40 @@ const ProjectCard = ({ project, index }) => {
 
   return (
     <div
-      ref={cardRef}
-      className="w-full flex justify-end px-4 opacity-0 transform translate-y-12 scale-95 transition-all duration-700 ease-out z-20"
+      className="w-full h-[50vh] md:h-screen lg:h-screen z-20 gap-4"
       style={{ transitionDelay: `${index * 0.1}s` }}
     >
-      <div className="relative w-full md:w-2/3 max-w-5xl rounded-2xl overflow-hidden border border-black/10 bg-[#f5f5dc] shadow-lg">
-        <div className="relative z-10 w-full h-full p-6 md:p-10 flex flex-col justify-between gap-6">
-          {/* Header */}
-          <div>
-            <div className="flex items-center justify-between mb-4">
-              <div className="px-3 py-1.5 rounded-full text-xs md:text-base uppercase tracking-wider bg-black/10 text-black border border-black/10">
-                {project.category}
-              </div>
-              <div className="text-lg md:text-2xl font-semibold">
-                {project.year}
-              </div>
-            </div>
-            <h2 className="text-3xl md:text-5xl uppercase mb-2 leading-tight text-black font-extrabold">
-              {project.title}
-            </h2>
-            <h3 className="text-lg md:text-2xl italic text-black/70">
-              {project.subtitle}
-            </h3>
-          </div>
-
-          {/* Content */}
-          <div className="flex flex-col gap-6">
-            <p className="text-base md:text-xl leading-relaxed text-black/80">
-              {project.description}
-            </p>
-            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-1.5 rounded-full text-xs md:text-base border bg-transparent text-black border-black"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <a
-                href={project.link}
-                target="_blank"
-                className="p-3 rounded-full uppercase tracking-wider text-xs md:text-base flex items-center gap-2 border-2 bg-black text-[#f5f5dc] border-black hover:scale-105 transition-transform self-end md:self-auto"
-              >
-                {/* <span>View Project</span> */}
-                <svg
-                  className="w-4 h-4 md:w-6 md:h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </a>
-            </div>
-          </div>
+      <div className="relative w-full h-full rounded-4xl border-2 overflow-hidden shadow-none flex flex-col items-end justify-end mt-5 p-6 md:p-10">
+        {/* Optimized background image */}
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          style={{ objectFit: 'cover', zIndex: 0 }}
+          quality={70}
+          priority={index === 0}
+          sizes="(max-width: 768px) 100vw, 100vw"
+        />
+        {/* Dim overlay */}
+        <div className="absolute inset-0 bg-white/40 z-10"></div>
+        <div className="z-20">
+          <a
+            href={project.link}
+            target="_blank"
+            className="z-[100] relative flex items-center gap-3 md:gap-4 group"
+          >
+            <Image src="/images/arrow.svg" alt="arrow" width={40} height={40} />
+          </a>
         </div>
-        <div className="absolute top-2 right-2 w-10 h-10 md:w-20 md:h-20 border-2 rounded-full border-black/10">
-          <div className="absolute inset-1 border-2 rounded-full border-black/5"></div>
-        </div>
+        <a
+          href={project.link}
+          target="_blank"
+          className="z-[100] relative flex items-center gap-3 md:gap-4 group"
+        >
+          <h2 className="text-7xl md:text-[10rem] lg:text-[14rem] uppercase font-[TDF] text-black drop-shadow-sm">
+            {project.title}
+          </h2>
+        </a>
       </div>
     </div>
   );
@@ -186,22 +158,19 @@ export default function Third() {
   };
 
   return (
-    <div ref={containerRef} className="bg-[beige] relative">
+    <div ref={containerRef} className="bg-[#f5f5dc] relative">
       {/* Hero Section */}
-      <div className="flex items-center justify-center h-screen sticky top-0">
-        <Parallax speed={-10}>
+      <div ref={titleRef} style={titleStyle} className="z-50 flex items-center justify-center h-screen py-[45vh] sticky top-0">
+        
           <h1
-            ref={titleRef}
-            style={titleStyle}
-            className="text-7xl md:text-9xl lg:text-[15rem] font-[TDF] uppercase"
+            className="text-8xl md:text-9xl lg:text-[15rem] font-[TDF] uppercase"
           >
             Projects
           </h1>
-        </Parallax>
       </div>
 
       {/* Project Content */}
-      <div className="pb-20">
+      <div className="p-5">
         {projectsData.map((project, index) => (
           <ProjectCard key={project.id} project={project} index={index} />
         ))}
