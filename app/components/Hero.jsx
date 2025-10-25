@@ -123,7 +123,7 @@ export default function Home() {
         {/* Main Text */}
         <Parallax speed={-20} className="z-10">
           <div className="text-5xl sm:text-6xl md:text-8xl lg:text-[12rem] xl:text-[15rem] 2xl:text-[20rem] boom text-black font-bold text-center px-4">
-            FAZAL KADIVAR
+            <h1>FAZAL KADIVAR</h1>
           </div>
         </Parallax>
       </div>

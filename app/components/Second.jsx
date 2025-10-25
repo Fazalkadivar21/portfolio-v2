@@ -2,7 +2,7 @@
 
 export default function AboutMe() {
   return (
-    <div className="min-h-screen w-full bg-[#18181b] text-[#f5f5dc] px-4 sm:px-6 lg:px-12 py-12 lg:py-20">
+    <section className="min-h-screen w-full bg-[#18181b] text-[#f5f5dc] px-4 sm:px-6 lg:px-12 py-12 lg:py-20">
       <style jsx>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap');
         
@@ -20,14 +20,14 @@ export default function AboutMe() {
 
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
-        <div className="mb-12 lg:mb-20">
-          <h1 className="heading-font uppercase text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-tight">
+        <header className="mb-12 lg:mb-20">
+          <h2 className="heading-font uppercase text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl tracking-tight">
             About me
-          </h1>
-        </div>
+          </h2>
+        </header>
 
         {/* Content Section */}
-        <div className="max-w-3xl lg:max-w-4xl">
+        <article className="max-w-3xl lg:max-w-4xl">
           <div className="body-font space-y-6 sm:space-y-8 text-base sm:text-lg lg:text-xl">
             <p className="opacity-90 hover:opacity-100 transition-opacity duration-300">
               I spend a lot of time building things on the internet. Sometimes
@@ -55,13 +55,13 @@ export default function AboutMe() {
               that's me.
             </p>
           </div>
-        </div>
+        </article>
 
         {/* Decorative Element */}
         <div className="mt-16 lg:mt-24">
-          <div className="w-20 sm:w-32 h-1 bg-[#f5f5dc] opacity-30"></div>
+          <div className="w-20 sm:w-32 h-1 bg-[#f5f5dc] opacity-30" aria-hidden="true"></div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

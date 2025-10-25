@@ -77,7 +77,7 @@ const ProjectCard = ({ project, index }) => {
   }, []);
 
   return (
-    <div
+    <article
       className="w-full h-[50vh] md:h-screen lg:h-screen z-20 gap-4"
       style={{ transitionDelay: `${index * 0.1}s` }}
     >
@@ -85,7 +85,7 @@ const ProjectCard = ({ project, index }) => {
         {/* Optimized background image */}
         <Image
           src={project.image}
-          alt={project.title}
+          alt={`${project.title} - ${project.subtitle}`}
           fill
           style={{ objectFit: 'cover', zIndex: 0 }}
           quality={70}
@@ -98,14 +98,23 @@ const ProjectCard = ({ project, index }) => {
           <a
             href={project.link}
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View ${project.title} project on GitHub`}
             className="z-[100] relative flex items-center gap-3 md:gap-4 group"
           >
-            <Image src="/images/arrow.svg" alt="arrow" width={40} height={40} />
+            <Image 
+              src="/images/arrow.svg" 
+              alt="Arrow icon to view project" 
+              width={40} 
+              height={40} 
+            />
           </a>
         </div>
         <a
           href={project.link}
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${project.title} - ${project.description}`}
           className="z-[100] relative flex items-center gap-3 md:gap-4 group"
         >
           <h2 className="text-7xl md:text-[10rem] lg:text-[14rem] uppercase font-[TDF] text-black drop-shadow-sm">
@@ -113,7 +122,7 @@ const ProjectCard = ({ project, index }) => {
           </h2>
         </a>
       </div>
-    </div>
+    </article>
   );
 };
 
@@ -160,21 +169,21 @@ export default function Third() {
   return (
     <div ref={containerRef} className="bg-[#f5f5dc] relative">
       {/* Hero Section */}
-      <div ref={titleRef} style={titleStyle} className="z-50 flex items-center justify-center h-screen py-[45vh] sticky top-0">
+      <section ref={titleRef} style={titleStyle} className="z-50 flex items-center justify-center h-screen py-[45vh] sticky top-0">
         
           <h1
             className="text-8xl md:text-9xl lg:text-[15rem] font-[TDF] uppercase"
           >
             Projects
           </h1>
-      </div>
+      </section>
 
       {/* Project Content */}
-      <div className="p-5">
+      <section className="p-5">
         {projectsData.map((project, index) => (
           <ProjectCard key={project.id} project={project} index={index} />
         ))}
-      </div>
+      </section>
     </div>
   );
 }
