@@ -63,6 +63,7 @@ export default function RootLayout({ children }) {
           content="https://fazalkadivar.com/images/fazal-kadivar.jpg"
         />
         <meta name="twitter:creator" content="@fazalkadivar21" />
+        <meta name="yandex-verification" content="569446ceaaeb7de7" />
 
         {/* JSON-LD Schema - Person */}
         <script
